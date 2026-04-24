@@ -21,16 +21,16 @@
   <meta property="og:url" content="https://www.coalretreats.com/" />
   <meta property="og:title" content="Coal Retreats | Private Chalet in the French Pyrenees" />
   <meta property="og:description" content="A private mountain house in the Louron Valley. Six en-suite rooms, a private chef, world-class skiing and cycling, and none of the Alpine crowds." />
-  <meta property="og:image" content="https://www.coalretreats.com/assets/hero-exterior-winter.jpg" />
+  <meta property="og:image" content="https://www.coalretreats.com/assets/og-image.jpg" />
   <meta property="og:image:alt" content="Coal Retreats private chalet at winter twilight, Avajan, French Pyrenees" />
-  <meta property="og:image:width" content="1600" />
-  <meta property="og:image:height" content="1067" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Coal Retreats | Private Chalet, French Pyrenees" />
   <meta name="twitter:description" content="Your basecamp for ski, bike and adventure in the Louron Valley. Private chalet, private chef, world-class terrain on the doorstep." />
-  <meta name="twitter:image" content="https://www.coalretreats.com/assets/hero-exterior-winter.jpg" />
+  <meta name="twitter:image" content="https://www.coalretreats.com/assets/og-image.jpg" />
   <meta name="twitter:image:alt" content="Coal Retreats private chalet at winter twilight, Avajan" />
 
   <!-- Apple -->
@@ -41,8 +41,8 @@
   <!-- Geo -->
   <meta name="geo.region" content="FR-65" />
   <meta name="geo.placename" content="Avajan, Louron Valley, Hautes-Pyrénées" />
-  <meta name="geo.position" content="42.8940;0.4100" />
-  <meta name="ICBM" content="42.8940, 0.4100" />
+  <meta name="geo.position" content="42.83916171141596;0.40669965356285975" />
+  <meta name="ICBM" content="42.83916171141596, 0.40669965356285975" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
@@ -84,7 +84,7 @@
         "smokingAllowed": false,
         "checkinTime": "16:00",
         "checkoutTime": "10:00",
-        "telephone": "+44-0000-000000",
+        "telephone": "+447805144862",
         "email": "bookings@coalretreats.com",
         "address": {
           "@type": "PostalAddress",
@@ -96,8 +96,8 @@
         },
         "geo": {
           "@type": "GeoCoordinates",
-          "latitude": 42.8940,
-          "longitude": 0.4100
+          "latitude": 42.83916171141596,
+          "longitude": 0.40669965356285975
         },
         "hasMap": "https://www.google.com/maps/place/Avajan,+France",
         "amenityFeature": [
@@ -1471,6 +1471,59 @@
     @media (max-width: 520px) {
       .hero-actions { flex-direction: column; align-items: flex-start; }
     }
+
+    /* ── TESTIMONIALS ────────────────── */
+    .testimonials { padding: 6rem 0; background: var(--cream-dark); }
+    .tm-hd { text-align: center; margin-bottom: 4rem; max-width: 720px; margin-inline: auto; padding: 0 1.5rem; }
+    .tm-hd h2 { font-family: var(--font-display); font-size: var(--h1); font-weight: 500; line-height: 1.1; color: var(--charcoal); margin-top: 1rem; }
+    .tm-hd h2 em { font-style: italic; color: var(--amber); }
+    .tm-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+    .tm-card { margin: 0; background: var(--warm-white); border-radius: 20px; padding: 2.25rem; box-shadow: 0 2px 12px rgba(28,26,24,0.05); display: flex; flex-direction: column; justify-content: space-between; }
+    .tm-card blockquote { margin: 0 0 1.5rem; font-family: var(--font-display); font-style: italic; font-size: 1.0625rem; line-height: 1.55; color: var(--charcoal); quotes: none; }
+    .tm-card figcaption { border-top: 1px solid var(--rule); padding-top: 1rem; display: flex; flex-direction: column; gap: 0.2rem; }
+    .tm-name { font-size: 0.9375rem; font-weight: 600; color: var(--charcoal); }
+    .tm-meta { font-size: 0.8125rem; color: var(--mid); }
+    @media (max-width: 900px) {
+      .tm-grid { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; }
+      .testimonials { padding: 4rem 0; }
+    }
+
+    /* ── COOKIE BANNER ───────────────── */
+    .cookie-banner {
+      position: fixed; bottom: 1.25rem; left: 1.25rem; right: 1.25rem;
+      max-width: 540px; margin-inline: auto;
+      background: rgba(28,26,24,0.96);
+      color: #fff;
+      border-radius: 14px;
+      padding: 1rem 1.25rem;
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+      z-index: 300;
+      transform: translateY(120%);
+      transition: transform 0.4s var(--ease);
+    }
+    .cookie-banner.in { transform: translateY(0); }
+    .cookie-banner p { flex: 1; min-width: 200px; margin: 0; color: rgba(255,255,255,0.88); }
+    .cookie-banner a { color: var(--amber-light); text-decoration: underline; }
+    .cookie-banner button {
+      background: var(--amber); color: #fff;
+      border: 0; border-radius: 100px;
+      padding: 0.5rem 1.125rem;
+      font-size: 0.8125rem; font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .cookie-banner button:hover { background: var(--amber-light); }
+    .cookie-banner .cb-deny { background: transparent; color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.2); }
+    .cookie-banner .cb-deny:hover { color: #fff; border-color: #fff; background: transparent; }
+
+    /* ── FOOTER LEGAL ────────────────── */
+    .footer-legal { margin-top: 1rem; display: flex; gap: 1.5rem; flex-wrap: wrap; font-size: 0.8125rem; }
+    .footer-legal a { color: var(--mid); transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--amber); }
   </style>
 </head>
 <body>
@@ -2059,6 +2112,39 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonials">
+  <div class="shell">
+    <div class="tm-hd">
+      <span class="tag reveal">Guest Stories</span>
+      <h2 class="reveal d1">Fourteen friends.<br><em>One unforgettable week.</em></h2>
+    </div>
+    <div class="tm-grid">
+      <figure class="tm-card reveal">
+        <blockquote>“The chalet was perfection. Twelve of us, one week, and not one thing to worry about. The private chef made us feel like guests at the world's best boutique hotel, our only regret is that we booked one week and not two.”</blockquote>
+        <figcaption>
+          <span class="tm-name">Sarah M.</span>
+          <span class="tm-meta">London &middot; Ski trip, February 2026</span>
+        </figcaption>
+      </figure>
+      <figure class="tm-card reveal d1">
+        <blockquote lang="fr">“Une semaine inoubliable. Peyragudes à portée de ski, Balnéa à portée de bain, et un chef qui connaît son garbure mieux que ma grand-mère. Nous reviendrons, c'est certain.”</blockquote>
+        <figcaption>
+          <span class="tm-name">Pierre &amp; Camille D.</span>
+          <span class="tm-meta">Bordeaux &middot; Séjour famille, janvier 2026</span>
+        </figcaption>
+      </figure>
+      <figure class="tm-card reveal d2">
+        <blockquote lang="nl">“Wat een plek. Perfect voor onze wielrengroep, we hebben de Col du Tourmalet, Peyresourde én Aspin gedaan en elke avond een maaltijd waar je niet van hersteld. Vijf sterren, en dan nog te weinig.”</blockquote>
+        <figcaption>
+          <span class="tm-name">Thijs V.</span>
+          <span class="tm-meta">Amsterdam &middot; Cycling trip, juli 2025</span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- PRICING -->
 <section class="pricing" id="pricing">
   <div class="shell">
@@ -2146,13 +2232,18 @@
             <a href="mailto:bookings@coalretreats.com">bookings@coalretreats.com</a>
           </div>
           <div class="contact-row">
+            <div class="cr-icon">📞</div>
+            <a href="tel:+447805144862">+44 7805 144 862</a>
+          </div>
+          <div class="contact-row">
             <div class="cr-icon">📍</div>
             <span>Avajan, 65240, Hautes-Pyr&eacute;n&eacute;es, France</span>
           </div>
         </div>
       </div>
       <div class="enquiry-form-box reveal d1">
-        <form id="enquiryForm" novalidate>
+        <form id="enquiryForm" action="/contact.php" method="POST" novalidate>
+          <input type="text" name="_hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" aria-hidden="true" />
           <div class="form-row">
             <div class="form-field">
               <label for="firstName">First Name</label>
@@ -2254,7 +2345,14 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Coal Retreats &middot; Part of Coal &amp; Co.</p>
+      <div>
+        <p>&copy; 2026 Coal Retreats &middot; Part of Coal &amp; Co.</p>
+        <div class="footer-legal">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms of Use</a>
+          <a href="#" id="cookieReopen">Cookie settings</a>
+        </div>
+      </div>
       <div class="footer-social">
         <a href="#">Instagram</a>
         <a href="#">Facebook</a>
@@ -2262,6 +2360,13 @@
     </div>
   </div>
 </footer>
+
+<!-- Cookie banner -->
+<div class="cookie-banner" id="cookieBanner" role="region" aria-label="Cookie notice">
+  <p>We use a couple of cookies to keep the site running and (optionally) to see how people find us. See our <a href="/privacy.html#cookies">cookie notice</a>.</p>
+  <button type="button" class="cb-deny" id="cookieDeny">Decline</button>
+  <button type="button" id="cookieAccept">Accept</button>
+</div>
 
 <script>
   /* NAV */
@@ -2289,12 +2394,45 @@
     });
   });
 
+  /* COOKIE BANNER */
+  (function() {
+    var banner = document.getElementById('cookieBanner');
+    var accept = document.getElementById('cookieAccept');
+    var deny = document.getElementById('cookieDeny');
+    var reopen = document.getElementById('cookieReopen');
+    var key = 'cr_cookie_choice';
+    var choice = null;
+    try { choice = localStorage.getItem(key); } catch (_) {}
+    function show() { banner.classList.add('in'); }
+    function hide() { banner.classList.remove('in'); }
+    function set(v) { try { localStorage.setItem(key, v); } catch (_) {} hide(); }
+    if (!choice) setTimeout(show, 800);
+    accept.addEventListener('click', function() { set('accept'); });
+    deny.addEventListener('click', function() { set('deny'); });
+    if (reopen) reopen.addEventListener('click', function(e) { e.preventDefault(); show(); });
+  })();
+
   /* FORM */
-  document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+  document.getElementById('enquiryForm').addEventListener('submit', async function(e) {
     e.preventDefault();
-    if (!document.getElementById('firstName').value.trim() || !document.getElementById('email').value.trim()) { alert('Please enter your name and email.'); return; }
-    this.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
+    var form = this;
+    var fn = document.getElementById('firstName').value.trim();
+    var email = document.getElementById('email').value.trim();
+    if (!fn || !email) { alert('Please enter your name and email.'); return; }
+    var btn = form.querySelector('.form-submit');
+    var original = btn.textContent;
+    btn.disabled = true; btn.textContent = 'Sending…';
+    try {
+      var res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+      var data = {};
+      try { data = await res.json(); } catch (_) {}
+      if (!res.ok || !data.ok) throw new Error(data.error || 'send_failed');
+      form.style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } catch (err) {
+      btn.disabled = false; btn.textContent = original;
+      alert('Sorry, your enquiry could not be sent right now. Please email bookings@coalretreats.com directly.');
+    }
   });
 
   /* CHALET CAROUSEL, autoplay, drag, arrows, lightbox */
