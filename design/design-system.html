@@ -1,0 +1,523 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Coal Retreats · Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Sacramento&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --cream: #faf6ef;
+    --cream-dark: #f2ebe0;
+    --warm-white: #fffdf9;
+    --amber: #c8842a;
+    --amber-light: #e0a84e;
+    --amber-pale: #f5e4c4;
+    --terra: #c4614a;
+    --terra-light: #e8937e;
+    --terra-pale: #f5e0d8;
+    --pine: #2d4a35;
+    --pine-light: #3d6648;
+    --pine-pale: #deeae0;
+    --sky: #2a4a6e;
+    --sky-pale: #d8e6f2;
+    --charcoal: #1c1a18;
+    --mid: #6b6460;
+    --light: #b0a89e;
+    --rule: rgba(28,26,24,0.1);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+    --font-script: 'Sacramento', cursive;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--cream); color: var(--charcoal); }
+  body { font-family: var(--font-body); font-weight: 400; -webkit-font-smoothing: antialiased; }
+  .shell { max-width: 1160px; margin: 0 auto; padding: 64px 40px; }
+
+  /* ---------- Header ---------- */
+  .hdr { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; padding-bottom: 28px; border-bottom: 1px solid var(--rule); margin-bottom: 56px; }
+  .hdr-lockup { display: flex; align-items: center; gap: 18px; }
+  .mark {
+    width: 56px; height: 56px; border-radius: 12px;
+    background: var(--cream-dark);
+    display: grid; place-items: center;
+    font-family: var(--font-display); font-weight: 700; font-size: 34px; color: var(--amber);
+  }
+  .wordmark { font-family: var(--font-display); font-weight: 400; font-size: 30px; letter-spacing: 0.01em; color: var(--charcoal); line-height: 1; }
+  .wordmark strong { font-weight: 700; color: var(--amber); }
+  .hdr-meta { text-align: right; font-size: 13px; color: var(--mid); line-height: 1.6; }
+  .hdr-meta .tag { font-family: var(--font-display); font-style: italic; font-size: 17px; color: var(--charcoal); display: block; margin-bottom: 4px; }
+
+  h2.sec {
+    font-family: var(--font-display); font-weight: 500; font-size: 34px;
+    margin: 72px 0 8px; color: var(--charcoal); line-height: 1.15;
+  }
+  h2.sec + .sec-desc { color: var(--mid); font-size: 15px; max-width: 640px; margin-bottom: 28px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 0.18em; font-size: 11px; color: var(--amber); font-weight: 500; }
+
+  /* ---------- Color ---------- */
+  .color-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .swatch {
+    border-radius: 14px; overflow: hidden; border: 1px solid var(--rule);
+    background: #fff;
+  }
+  .swatch .fill { height: 160px; position: relative; }
+  .swatch .meta { padding: 18px 20px; }
+  .swatch .name { font-family: var(--font-display); font-size: 22px; font-weight: 500; margin: 0 0 4px; }
+  .swatch .hex { font-family: var(--font-mono); font-size: 13px; color: var(--mid); margin: 0 0 8px; }
+  .swatch .role { font-size: 13px; color: var(--charcoal); line-height: 1.5; }
+
+  .ext-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 16px; }
+  .chip { border-radius: 10px; overflow: hidden; border: 1px solid var(--rule); background: #fff; }
+  .chip .fill { height: 72px; }
+  .chip .meta { padding: 10px 12px 12px; }
+  .chip .name { font-size: 13px; font-weight: 500; color: var(--charcoal); line-height: 1.2; }
+  .chip .hex { font-family: var(--font-mono); font-size: 11px; color: var(--mid); margin-top: 2px; }
+
+  /* ---------- Typography ---------- */
+  .type-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .type-card { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 28px 32px; }
+  .type-card.dark { background: var(--charcoal); color: var(--cream); }
+  .type-card.dark .type-label { color: var(--amber-light); }
+  .type-label { text-transform: uppercase; letter-spacing: 0.16em; font-size: 11px; color: var(--amber); font-weight: 500; margin-bottom: 12px; }
+  .display-sample { font-family: var(--font-display); font-weight: 500; font-size: 56px; line-height: 1.05; margin: 0 0 6px; }
+  .display-sample em { font-style: italic; color: var(--amber); }
+  .type-card.dark .display-sample em { color: var(--amber-light); }
+  .type-meta { font-family: var(--font-mono); font-size: 12px; color: var(--mid); }
+  .type-card.dark .type-meta { color: var(--light); }
+  .body-sample { font-family: var(--font-body); font-size: 16px; line-height: 1.6; color: var(--charcoal); margin: 0; }
+  .type-card.dark .body-sample { color: var(--cream); }
+  .script-sample { font-family: var(--font-script); font-size: 56px; color: var(--terra); line-height: 1; margin: 0; }
+
+  .weights { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 20px; }
+  .weight { background: #fff; border: 1px solid var(--rule); border-radius: 10px; padding: 18px; }
+  .weight .w { font-family: var(--font-display); font-size: 30px; line-height: 1; margin: 0 0 4px; color: var(--charcoal); }
+  .weight .l { font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--mid); }
+
+  /* ---------- Principles ---------- */
+  .prin-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .prin {
+    background: #fff; border: 1px solid var(--rule); border-radius: 14px;
+    padding: 26px 28px 28px; position: relative;
+  }
+  .prin .n { font-family: var(--font-display); font-style: italic; font-size: 14px; color: var(--amber); margin-bottom: 8px; }
+  .prin h3 { font-family: var(--font-display); font-weight: 500; font-size: 22px; margin: 0 0 10px; line-height: 1.2; }
+  .prin p { font-size: 14px; line-height: 1.6; color: var(--mid); margin: 0; }
+
+  .voice { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
+  .voice-card { border-radius: 14px; padding: 24px 28px; }
+  .voice-do { background: var(--pine-pale); border: 1px solid rgba(45,74,53,0.15); }
+  .voice-dont { background: var(--terra-pale); border: 1px solid rgba(196,97,74,0.18); }
+  .voice-card h4 { font-family: var(--font-display); font-weight: 500; font-size: 18px; margin: 0 0 10px; }
+  .voice-do h4 { color: var(--pine); }
+  .voice-dont h4 { color: var(--terra); }
+  .voice-card ul { margin: 0; padding-left: 18px; font-size: 14px; line-height: 1.7; color: var(--charcoal); }
+  .voice-card li { margin-bottom: 2px; }
+
+  /* ---------- Components ---------- */
+  .comp { background: #fff; border: 1px solid var(--rule); border-radius: 14px; padding: 32px; }
+  .comp-row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 24px; }
+  .comp-row:last-child { margin-bottom: 0; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 28px; border-radius: 999px; font-family: var(--font-body); font-weight: 500; font-size: 15px;
+    border: 1px solid transparent; cursor: pointer; text-decoration: none;
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-primary { background: var(--amber); color: #fff; }
+  .btn-primary:hover { background: var(--amber-light); }
+  .btn-dark { background: var(--charcoal); color: var(--cream); }
+  .btn-ghost { background: transparent; color: var(--charcoal); border-color: var(--charcoal); }
+  .btn-ghost:hover { background: var(--charcoal); color: var(--cream); }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 16px; border-radius: 999px; font-size: 12px; font-weight: 500;
+    text-transform: uppercase; letter-spacing: 0.1em;
+  }
+  .pill-amber { background: var(--amber-pale); color: #8a5a18; }
+  .pill-pine { background: var(--pine-pale); color: var(--pine); }
+  .pill-sky { background: var(--sky-pale); color: var(--sky); }
+  .pill-terra { background: var(--terra-pale); color: var(--terra); }
+
+  .card-demo { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .dcard {
+    border-radius: 14px; overflow: hidden; background: #fff; border: 1px solid var(--rule);
+  }
+  .dcard .img {
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(135deg, var(--pine) 0%, var(--pine-light) 100%);
+    position: relative;
+  }
+  .dcard.terra .img { background: linear-gradient(135deg, var(--terra) 0%, var(--terra-light) 100%); }
+  .dcard.amber .img { background: linear-gradient(135deg, var(--amber) 0%, var(--amber-light) 100%); }
+  .dcard .season { position: absolute; top: 16px; left: 16px; background: rgba(255,255,255,0.9); color: var(--charcoal); font-size: 10px; text-transform: uppercase; letter-spacing: 0.14em; padding: 6px 10px; border-radius: 999px; font-weight: 500; }
+  .dcard .b { padding: 20px 22px 22px; }
+  .dcard h5 { font-family: var(--font-display); font-weight: 500; font-size: 20px; margin: 0 0 6px; }
+  .dcard p { font-size: 13px; color: var(--mid); margin: 0; line-height: 1.55; }
+
+  /* ---------- Icons ---------- */
+  .icon-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; }
+  .icon {
+    aspect-ratio: 1; background: #fff; border: 1px solid var(--rule); border-radius: 12px;
+    display: grid; place-items: center; color: var(--charcoal);
+  }
+  .icon svg { width: 26px; height: 26px; }
+  .icon-label { font-size: 10px; color: var(--mid); text-align: center; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.1em; }
+  .icon-wrap { display: flex; flex-direction: column; }
+
+  /* ---------- Lockups ---------- */
+  .lock-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .lock {
+    border-radius: 14px; padding: 40px 32px; min-height: 180px;
+    display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 8px;
+    text-align: center;
+  }
+  .lock.cream { background: var(--cream-dark); }
+  .lock.dark { background: var(--charcoal); }
+  .lock.pine { background: var(--pine); }
+
+  .lock .big {
+    font-family: var(--font-display); font-weight: 400; font-size: 42px; line-height: 1; letter-spacing: 0.01em;
+  }
+  .lock.cream .big { color: var(--charcoal); }
+  .lock.cream .big strong { color: var(--amber); font-weight: 700; }
+  .lock.dark .big { color: var(--cream); }
+  .lock.dark .big strong { color: var(--amber-light); font-weight: 700; }
+  .lock.pine .big { color: var(--cream); }
+  .lock.pine .big strong { color: var(--amber-light); font-weight: 700; }
+  .lock .sub {
+    font-size: 10px; text-transform: uppercase; letter-spacing: 0.3em;
+  }
+  .lock.cream .sub { color: var(--mid); }
+  .lock.dark .sub, .lock.pine .sub { color: var(--light); }
+
+  .lock-stacked .big { display: flex; flex-direction: column; line-height: 0.95; }
+  .lock-mark { display: flex; align-items: center; gap: 14px; }
+  .lock-mark .m {
+    width: 52px; height: 52px; border-radius: 11px; background: var(--cream);
+    display: grid; place-items: center; font-family: var(--font-display); font-weight: 700; font-size: 32px; color: var(--amber);
+  }
+  .lock-mark .big { font-size: 36px; }
+
+  /* ---------- Footer ---------- */
+  .ftr {
+    margin-top: 96px; padding-top: 28px; border-top: 1px solid var(--rule);
+    display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--mid);
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- Header -->
+  <header class="hdr">
+    <div class="hdr-lockup">
+      <div class="mark">C</div>
+      <div>
+        <div class="wordmark">Coal <strong>Retreats</strong></div>
+        <div style="font-size:11px; letter-spacing:0.3em; text-transform:uppercase; color:var(--mid); margin-top:6px;">L'Ancienne Poste · Avajan</div>
+      </div>
+    </div>
+    <div class="hdr-meta">
+      <span class="tag">Ski, bike &amp; adventure. <em style="font-style:italic;color:var(--amber);">Your basecamp.</em></span>
+      Design System · v1.0 · April 2026
+    </div>
+  </header>
+
+  <!-- Color Hierarchy -->
+  <section>
+    <span class="eyebrow">Color · Hierarchy</span>
+    <h2 class="sec">Three colors carry the brand</h2>
+    <p class="sec-desc">Amber is the signature — warm, low-light, alpine evening. Pine grounds it in the valley. Charcoal is the reading surface. Cream is the paper everything sits on.</p>
+    <div class="color-grid">
+      <div class="swatch">
+        <div class="fill" style="background:var(--amber);"></div>
+        <div class="meta">
+          <p class="name">Amber — Primary</p>
+          <p class="hex">#C8842A</p>
+          <p class="role">The signature. CTAs, highlights, accents in dark sections, hero moments. Never on white text for body; always against cream, charcoal or photography.</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:var(--pine);"></div>
+        <div class="meta">
+          <p class="name">Pine — Secondary</p>
+          <p class="hex">#2D4A35</p>
+          <p class="role">The valley. Summer sections, nature context, large colour fields, quiet backgrounds. Pairs with amber for depth.</p>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="fill" style="background:var(--charcoal);"></div>
+        <div class="meta">
+          <p class="name">Charcoal — Tertiary</p>
+          <p class="hex">#1C1A18</p>
+          <p class="role">Body copy. Dark navigation. Night-scene backgrounds. Never pure black — always this warm near-black.</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 2fr;gap:20px;margin-top:20px;align-items:stretch;">
+      <div class="swatch" style="display:flex;flex-direction:column;">
+        <div class="fill" style="background:var(--cream);border-bottom:1px solid var(--rule);"></div>
+        <div class="meta" style="flex:1;">
+          <p class="name">Cream — Surface</p>
+          <p class="hex">#FAF6EF</p>
+          <p class="role">The paper. Every page, every section, every print piece sits on cream. Not white.</p>
+        </div>
+      </div>
+      <div class="swatch" style="background:var(--cream);display:flex;align-items:center;padding:24px 32px;">
+        <p style="font-family:var(--font-display);font-style:italic;font-size:22px;line-height:1.4;color:var(--charcoal);margin:0;max-width:520px;">
+          "Cream is the stillness. Amber is the lantern in the window. Pine is the forest around it. Charcoal is the night outside."
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Extended palette -->
+  <section>
+    <span class="eyebrow">Color · Extended</span>
+    <h2 class="sec">Extended palette</h2>
+    <p class="sec-desc">Supporting tones for gradients, section tints, activity cards, and subtle surface variation. Use sparingly — the three primaries do most of the work.</p>
+    <div class="ext-grid">
+      <div class="chip"><div class="fill" style="background:var(--amber-light);"></div><div class="meta"><div class="name">Amber Light</div><div class="hex">#E0A84E</div></div></div>
+      <div class="chip"><div class="fill" style="background:var(--amber-pale);"></div><div class="meta"><div class="name">Amber Pale</div><div class="hex">#F5E4C4</div></div></div>
+      <div class="chip"><div class="fill" style="background:var(--terra);"></div><div class="meta"><div class="name">Terra</div><div class="hex">#C4614A</div></div></div>
+      <div class="chip"><div class="fill" style="background:var(--terra-pale);"></div><div class="meta"><div class="name">Terra Pale</div><div class="hex">#F5E0D8</div></div></div>
+      <div class="chip"><div class="fill" style="background:var(--pine-light);"></div><div class="meta"><div class="name">Pine Light</div><div class="hex">#3D6648</div></div></div>
+      <div class="chip"><div class="fill" style="background:var(--pine-pale);"></div><div class="meta"><div class="name">Pine Pale</div><div class="hex">#DEEAE0</div></div></div>
+      <div class="chip"><div class="fill" style="background:var(--sky);"></div><div class="meta"><div class="name">Sky</div><div class="hex">#2A4A6E</div></div></div>
+      <div class="chip"><div class="fill" style="background:var(--sky-pale);"></div><div class="meta"><div class="name">Sky Pale</div><div class="hex">#D8E6F2</div></div></div>
+      <div class="chip"><div class="fill" style="background:var(--cream-dark);"></div><div class="meta"><div class="name">Cream Dark</div><div class="hex">#F2EBE0</div></div></div>
+      <div class="chip"><div class="fill" style="background:var(--warm-white);"></div><div class="meta"><div class="name">Warm White</div><div class="hex">#FFFDF9</div></div></div>
+      <div class="chip"><div class="fill" style="background:var(--mid);"></div><div class="meta"><div class="name">Mid</div><div class="hex">#6B6460</div></div></div>
+      <div class="chip"><div class="fill" style="background:var(--light);"></div><div class="meta"><div class="name">Light</div><div class="hex">#B0A89E</div></div></div>
+    </div>
+  </section>
+
+  <!-- Typography -->
+  <section>
+    <span class="eyebrow">Typography</span>
+    <h2 class="sec">Serif voice, sans body, script accent</h2>
+    <p class="sec-desc">Playfair Display carries the editorial, alpine-lodge tone. DM Sans keeps body copy clean and calm. Sacramento appears sparingly — signatures, editorial flourishes, dedication moments.</p>
+
+    <div class="type-grid">
+      <div class="type-card">
+        <div class="type-label">Display · Playfair Display</div>
+        <p class="display-sample">Ski, bike<br/>&amp; <em>adventure.</em></p>
+        <p class="type-meta">Playfair Display · 500 · italic accent</p>
+      </div>
+      <div class="type-card dark">
+        <div class="type-label">Display · Dark Surface</div>
+        <p class="display-sample">Your <em>basecamp</em></p>
+        <p class="type-meta">Playfair Display · 500 · amber italic</p>
+      </div>
+    </div>
+
+    <div class="type-grid" style="margin-top:20px;">
+      <div class="type-card">
+        <div class="type-label">Body · DM Sans</div>
+        <p class="body-sample">Six en-suite bedrooms, a private chef, world-class skiing and cycling, and the kind of quiet that only a Pyrenean valley delivers. No shared spaces, no other guests — the whole property, always.</p>
+        <p class="type-meta" style="margin-top:12px;">DM Sans · 400 · 16/26</p>
+      </div>
+      <div class="type-card">
+        <div class="type-label">Accent · Sacramento</div>
+        <p class="script-sample">handwritten moments</p>
+        <p class="type-meta" style="margin-top:16px;">Sacramento · 400 · use sparingly</p>
+      </div>
+    </div>
+
+    <div class="weights">
+      <div class="weight"><p class="w" style="font-weight:400;">Aa</p><div class="l">Display · 400 Regular</div></div>
+      <div class="weight"><p class="w" style="font-weight:500;">Aa</p><div class="l">Display · 500 Medium</div></div>
+      <div class="weight"><p class="w" style="font-weight:700;">Aa</p><div class="l">Display · 700 Bold</div></div>
+      <div class="weight"><p class="w" style="font-style:italic;font-weight:400;">Aa</p><div class="l">Display · Italic</div></div>
+    </div>
+    <div class="weights">
+      <div class="weight"><p class="w" style="font-family:var(--font-body);font-weight:300;">Aa</p><div class="l">DM Sans · 300 Light</div></div>
+      <div class="weight"><p class="w" style="font-family:var(--font-body);font-weight:400;">Aa</p><div class="l">DM Sans · 400 Regular</div></div>
+      <div class="weight"><p class="w" style="font-family:var(--font-body);font-weight:500;">Aa</p><div class="l">DM Sans · 500 Medium</div></div>
+      <div class="weight"><p class="w" style="font-family:var(--font-body);font-weight:600;">Aa</p><div class="l">DM Sans · 600 SemiBold</div></div>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section>
+    <span class="eyebrow">Principles</span>
+    <h2 class="sec">Six rules shape every decision</h2>
+    <p class="sec-desc">Design and copy both answer to the same north star — calm, understated luxury for groups who value space, privacy, and experience over trophies.</p>
+
+    <div class="prin-grid">
+      <div class="prin">
+        <div class="n">01</div>
+        <h3>Private only</h3>
+        <p>Exclusive use, every booking. Never a shared space, never a room-by-room sell. The whole property, or not at all.</p>
+      </div>
+      <div class="prin">
+        <div class="n">02</div>
+        <h3>Space over saturation</h3>
+        <p>Photography, copy, and layout all breathe. More white space than content. Let the mountains and the architecture do the talking.</p>
+      </div>
+      <div class="prin">
+        <div class="n">03</div>
+        <h3>Food-led</h3>
+        <p>Dining is the centre of the stay, not a footnote. Private chef, Pyrenean produce, long dinners. Treat food moments with the same weight as hero imagery.</p>
+      </div>
+      <div class="prin">
+        <div class="n">04</div>
+        <h3>Basecamp, not hotel</h3>
+        <p>Guests return from adventure to warmth, not to a front desk. Every touchpoint should feel like a home that's been prepared for them.</p>
+      </div>
+      <div class="prin">
+        <div class="n">05</div>
+        <h3>Year-round, never seasonal</h3>
+        <p>Winter and summer carry equal weight. Ski imagery and cycling imagery appear in proportion. Autumn and spring are opportunities, not gaps.</p>
+      </div>
+      <div class="prin">
+        <div class="n">06</div>
+        <h3>Calm premium, never loud</h3>
+        <p>Understated, editorial, confident. No superlatives, no exclamation marks, no "ultra-luxury" language. The quality is the claim.</p>
+      </div>
+    </div>
+
+    <div class="voice">
+      <div class="voice-card voice-do">
+        <h4>Voice — say this</h4>
+        <ul>
+          <li>Private, exclusive-use, basecamp</li>
+          <li>Space, privacy, quality, calm</li>
+          <li>Food-led, host-led, experience-led</li>
+          <li>Mountain, valley, retreat, group</li>
+          <li>Year-round, year after year</li>
+        </ul>
+      </div>
+      <div class="voice-card voice-dont">
+        <h4>Voice — never</h4>
+        <ul>
+          <li>Cheap, cosy, budget, affordable</li>
+          <li>Deal, discount, special offer</li>
+          <li>Cabin, rental, Airbnb-style</li>
+          <li>Party, wild, epic, ultimate</li>
+          <li>Exclamation marks. Ever.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Components -->
+  <section>
+    <span class="eyebrow">Components</span>
+    <h2 class="sec">Components</h2>
+    <p class="sec-desc">Rounded, warm, confident. Pill buttons, soft 14–999px radii, clean 1px rules on cream. Elevation is subtle — the brand doesn't shout.</p>
+
+    <div class="comp">
+      <div class="comp-row">
+        <button class="btn btn-primary">Enquire for dates</button>
+        <button class="btn btn-dark">View the chalet</button>
+        <button class="btn btn-ghost">Download brochure</button>
+      </div>
+      <div class="comp-row">
+        <span class="pill pill-amber">Exclusive use</span>
+        <span class="pill pill-pine">Summer · May – Oct</span>
+        <span class="pill pill-sky">Winter · Dec – Mar</span>
+        <span class="pill pill-terra">Chef on request</span>
+      </div>
+      <div class="card-demo">
+        <div class="dcard">
+          <div class="img"><span class="season">Dec – Mar</span></div>
+          <div class="b">
+            <h5>Ski Peyragudes</h5>
+            <p>Nine minutes from the chalet via Skyvall lift. Uncrowded, varied, genuinely brilliant.</p>
+          </div>
+        </div>
+        <div class="dcard terra">
+          <div class="img"><span class="season">May – Oct</span></div>
+          <div class="b">
+            <h5>Cycle the Cols</h5>
+            <p>Col de Peyresourde and Col d'Azet start at your door. No car required.</p>
+          </div>
+        </div>
+        <div class="dcard amber">
+          <div class="img"><span class="season">Year round</span></div>
+          <div class="b">
+            <h5>Private chef</h5>
+            <p>Pyrenean cuisine, global influence. Breakfast, long dinners, wine from the valley.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Icons -->
+  <section>
+    <span class="eyebrow">Iconography</span>
+    <h2 class="sec">Thin-line mountain glyphs</h2>
+    <p class="sec-desc">A small, quiet icon set. 1.5px strokes, rounded caps, amber stroke on cream or white stroke on charcoal. Never filled.</p>
+    <div class="icon-grid">
+      <div class="icon-wrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20l5-9 4 6 3-4 6 7z"/><circle cx="16" cy="6" r="2"/></svg></div><div class="icon-label">Mountain</div></div>
+      <div class="icon-wrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="18" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 18L10 8h4l4 10M10 8l3-3M14 8h3"/></svg></div><div class="icon-label">Bike</div></div>
+      <div class="icon-wrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20V9l7-5 7 5v11M10 20v-6h4v6"/></svg></div><div class="icon-label">Chalet</div></div>
+      <div class="icon-wrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4v8a4 4 0 008 0V4M6 4h12M12 14v6M9 20h6"/></svg></div><div class="icon-label">Dining</div></div>
+      <div class="icon-wrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l6-6M10 12l4 4M14 16l6-6M4 20h16"/></svg></div><div class="icon-label">Ski</div></div>
+      <div class="icon-wrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10c0-4 4-6 8-6s8 2 8 6c0 2-1 3-2 3H6c-1 0-2-1-2-3zM6 13v7M18 13v7M10 13v5M14 13v5"/></svg></div><div class="icon-label">Spa</div></div>
+      <div class="icon-wrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M12 2v3M12 15v3M5 10h3M16 10h3M7 5l2 2M15 13l2 2M7 15l2-2M15 7l2-2"/></svg></div><div class="icon-label">Summer</div></div>
+      <div class="icon-wrap"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20M2 12h20M5 5l14 14M5 19L19 5"/></svg></div><div class="icon-label">Winter</div></div>
+    </div>
+  </section>
+
+  <!-- Lockups -->
+  <section>
+    <span class="eyebrow">Lockups</span>
+    <h2 class="sec">Wordmarks &amp; lockups</h2>
+    <p class="sec-desc">"Coal Retreats" — set in Playfair Display, Regular on the left word, Bold on the right. Amber highlights "Retreats" to carry the signature colour into every lockup.</p>
+
+    <div class="lock-grid">
+      <div class="lock cream">
+        <div class="big">Coal <strong>Retreats</strong></div>
+        <div class="sub">Primary · Cream surface</div>
+      </div>
+      <div class="lock dark">
+        <div class="big">Coal <strong>Retreats</strong></div>
+        <div class="sub">Reversed · Dark surface</div>
+      </div>
+      <div class="lock pine">
+        <div class="big">Coal <strong>Retreats</strong></div>
+        <div class="sub">On pine · Seasonal</div>
+      </div>
+    </div>
+
+    <div class="lock-grid" style="margin-top:20px;">
+      <div class="lock cream lock-stacked">
+        <div class="big" style="font-size:46px;">
+          <span>Coal</span>
+          <strong>Retreats</strong>
+        </div>
+        <div class="sub" style="margin-top:10px;">Stacked · Square formats</div>
+      </div>
+      <div class="lock cream">
+        <div class="lock-mark">
+          <div class="m">C</div>
+          <div class="big" style="font-size:32px;">Coal <strong>Retreats</strong></div>
+        </div>
+        <div class="sub" style="margin-top:14px;">Mark + wordmark · Favicon lockup</div>
+      </div>
+      <div class="lock cream">
+        <div style="font-family:var(--font-display);font-style:italic;font-size:20px;color:var(--mid);line-height:1.2;margin-bottom:6px;">L'Ancienne Poste</div>
+        <div class="big" style="font-size:34px;">Coal <strong>Retreats</strong></div>
+        <div class="sub" style="margin-top:12px;">Heritage lockup · Long-form</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="ftr">
+    <div>coalretreats/design/design-system.html</div>
+    <div>v1.0 · Pair with brand-book-a4.pdf</div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Coal Retreats · Brand Book A4</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 0; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: #e8e4db; }
+
+  :root {
+    --cream: #faf6ef;
+    --cream-dark: #f2ebe0;
+    --amber: #c8842a;
+    --amber-light: #e0a84e;
+    --amber-pale: #f5e4c4;
+    --terra: #c4614a;
+    --terra-pale: #f5e0d8;
+    --pine: #2d4a35;
+    --pine-pale: #deeae0;
+    --sky: #2a4a6e;
+    --sky-pale: #d8e6f2;
+    --charcoal: #1c1a18;
+    --mid: #6b6460;
+    --light: #b0a89e;
+    --rule: rgba(28,26,24,0.1);
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'DM Sans', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  .page {
+    width: 210mm; height: 297mm;
+    padding: 14mm 14mm 11mm;
+    background: var(--cream);
+    color: var(--charcoal);
+    font-family: var(--font-body);
+    display: flex; flex-direction: column;
+    gap: 6mm;
+  }
+
+  /* Head */
+  .head {
+    display: flex; align-items: flex-start; justify-content: space-between; gap: 10mm;
+    padding-bottom: 4mm;
+    border-bottom: 0.3mm solid var(--rule);
+  }
+  .lockup { display: flex; align-items: center; gap: 3mm; }
+  .mark {
+    width: 13mm; height: 13mm; border-radius: 2.5mm;
+    background: var(--cream-dark);
+    display: grid; place-items: center;
+    font-family: var(--font-display); font-weight: 700; font-size: 9mm; color: var(--amber);
+  }
+  .wordmark { font-family: var(--font-display); font-weight: 400; font-size: 7.5mm; line-height: 1; color: var(--charcoal); letter-spacing: 0.01em; }
+  .wordmark strong { font-weight: 700; color: var(--amber); }
+  .heritage { font-family: var(--font-display); font-style: italic; font-size: 3mm; color: var(--mid); margin-top: 1.2mm; letter-spacing: 0.04em; }
+  .head-right { text-align: right; font-size: 2.6mm; color: var(--mid); line-height: 1.5; }
+  .head-tag {
+    font-family: var(--font-display); font-style: italic; font-weight: 400;
+    font-size: 4.2mm; color: var(--charcoal); display: block; margin-bottom: 1.2mm; line-height: 1.2;
+  }
+  .head-tag em { color: var(--amber); font-style: italic; font-weight: 500; }
+  .head-meta { font-family: var(--font-mono); font-size: 2.3mm; letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* Section label */
+  .eyebrow {
+    font-family: var(--font-mono); font-size: 2.3mm;
+    text-transform: uppercase; letter-spacing: 0.22em; color: var(--amber);
+    margin-bottom: 2mm;
+  }
+
+  /* Colors */
+  .colors { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+  .sw {
+    border-radius: 2.5mm; overflow: hidden; border: 0.2mm solid var(--rule);
+    background: #fff;
+  }
+  .sw .fill { height: 22mm; }
+  .sw .meta { padding: 2.4mm 3mm 3mm; }
+  .sw .n { font-family: var(--font-display); font-size: 4mm; font-weight: 500; line-height: 1; margin-bottom: 1mm; }
+  .sw .h { font-family: var(--font-mono); font-size: 2.4mm; color: var(--mid); margin-bottom: 1.5mm; }
+  .sw .r { font-size: 2.5mm; line-height: 1.4; color: var(--charcoal); }
+
+  .ext-strip {
+    display: grid; grid-template-columns: repeat(10, 1fr); gap: 1.5mm; margin-top: 2mm;
+  }
+  .ext-chip { border-radius: 1.5mm; overflow: hidden; border: 0.2mm solid var(--rule); background: #fff; }
+  .ext-chip .f { height: 8mm; }
+  .ext-chip .t {
+    font-family: var(--font-mono); font-size: 1.9mm; padding: 1mm 1.5mm; color: var(--mid);
+    text-align: center;
+  }
+
+  /* Mid grid: Typography + Principles */
+  .mid { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+  .card {
+    border-radius: 2.5mm;
+    padding: 4mm 5mm;
+    border: 0.2mm solid var(--rule);
+    background: #fff;
+  }
+  .card-label {
+    font-family: var(--font-mono); font-size: 2.2mm;
+    text-transform: uppercase; letter-spacing: 0.2em; color: var(--amber);
+    margin-bottom: 2.5mm;
+  }
+
+  .type-display { font-family: var(--font-display); font-weight: 500; font-size: 12mm; line-height: 1; color: var(--charcoal); margin: 0 0 1mm; }
+  .type-display em { font-style: italic; color: var(--amber); }
+  .type-body { font-family: var(--font-body); font-size: 2.8mm; color: var(--charcoal); line-height: 1.5; margin: 2mm 0 0; }
+  .type-meta { font-family: var(--font-mono); font-size: 2.2mm; color: var(--mid); margin-top: 2mm; }
+  .type-weights { display: flex; gap: 3mm; margin-top: 2.5mm; flex-wrap: wrap; }
+  .type-weights span {
+    font-family: var(--font-display); font-size: 5mm; color: var(--charcoal); line-height: 1;
+  }
+
+  .prin-list { display: flex; flex-direction: column; gap: 2.2mm; margin: 0; padding: 0; list-style: none; }
+  .prin-list li { display: flex; gap: 2.5mm; align-items: flex-start; }
+  .prin-list .num {
+    font-family: var(--font-display); font-style: italic; font-weight: 400;
+    font-size: 3.5mm; color: var(--amber); line-height: 1.1; flex: 0 0 5mm;
+  }
+  .prin-list .body { flex: 1; font-size: 2.6mm; line-height: 1.45; color: var(--charcoal); }
+  .prin-list .body strong { font-family: var(--font-display); font-weight: 500; font-size: 3mm; display: block; margin-bottom: 0.5mm; color: var(--charcoal); }
+
+  /* Voice row */
+  .voice { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; }
+  .v-do { background: var(--pine-pale); border: 0.2mm solid rgba(45,74,53,0.2); border-radius: 2.5mm; padding: 3mm 4mm; }
+  .v-dont { background: var(--terra-pale); border: 0.2mm solid rgba(196,97,74,0.2); border-radius: 2.5mm; padding: 3mm 4mm; }
+  .v-do h5, .v-dont h5 { font-family: var(--font-display); font-weight: 500; font-size: 3.4mm; margin: 0 0 1.5mm; }
+  .v-do h5 { color: var(--pine); }
+  .v-dont h5 { color: var(--terra); }
+  .v-do p, .v-dont p { font-size: 2.5mm; line-height: 1.45; color: var(--charcoal); margin: 0; }
+
+  /* Lockups */
+  .locks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3mm; }
+  .lock {
+    border-radius: 2.5mm; padding: 6mm 4mm;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 2mm; min-height: 28mm; text-align: center;
+  }
+  .lock .big { font-family: var(--font-display); font-weight: 400; font-size: 7mm; line-height: 1; letter-spacing: 0.01em; }
+  .lock .big strong { font-weight: 700; }
+  .lock .sub { font-family: var(--font-mono); font-size: 2mm; letter-spacing: 0.22em; text-transform: uppercase; }
+  .lock-cream { background: var(--cream-dark); }
+  .lock-cream .big { color: var(--charcoal); }
+  .lock-cream .big strong { color: var(--amber); }
+  .lock-cream .sub { color: var(--mid); }
+  .lock-dark { background: var(--charcoal); }
+  .lock-dark .big { color: var(--cream); }
+  .lock-dark .big strong { color: var(--amber-light); }
+  .lock-dark .sub { color: var(--light); }
+  .lock-pine { background: var(--pine); }
+  .lock-pine .big { color: var(--cream); }
+  .lock-pine .big strong { color: var(--amber-light); }
+  .lock-pine .sub { color: var(--light); }
+  .lock-mark { display: flex; align-items: center; gap: 2.5mm; }
+  .lock-mark .m {
+    width: 10mm; height: 10mm; border-radius: 2mm;
+    background: var(--cream);
+    display: grid; place-items: center;
+    font-family: var(--font-display); font-weight: 700; font-size: 7mm; color: var(--amber);
+  }
+  .lock-mark .big { font-size: 6mm; }
+
+  /* Footer */
+  .foot {
+    margin-top: auto;
+    display: flex; justify-content: space-between;
+    font-family: var(--font-mono); font-size: 2.1mm;
+    color: var(--mid); letter-spacing: 0.06em;
+    padding-top: 3mm;
+    border-top: 0.3mm solid var(--rule);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Head -->
+  <header class="head">
+    <div class="lockup">
+      <div class="mark">C</div>
+      <div>
+        <div class="wordmark">Coal <strong>Retreats</strong></div>
+        <div class="heritage">L'Ancienne Poste · Avajan · French Pyrénées</div>
+      </div>
+    </div>
+    <div class="head-right">
+      <span class="head-tag">Ski, bike &amp; adventure. <em>Your basecamp.</em></span>
+      <span class="head-meta">Brand Book · v1.0 · Apr 2026</span>
+    </div>
+  </header>
+
+  <!-- Colors -->
+  <section>
+    <div class="eyebrow">Color · Hierarchy</div>
+    <div class="colors">
+      <div class="sw">
+        <div class="fill" style="background:var(--amber);"></div>
+        <div class="meta">
+          <div class="n">Amber — Primary</div>
+          <div class="h">#C8842A</div>
+          <div class="r">The signature. CTAs, highlights, accents on dark surfaces.</div>
+        </div>
+      </div>
+      <div class="sw">
+        <div class="fill" style="background:var(--pine);"></div>
+        <div class="meta">
+          <div class="n">Pine — Secondary</div>
+          <div class="h">#2D4A35</div>
+          <div class="r">The valley. Summer sections, quiet fields, nature context.</div>
+        </div>
+      </div>
+      <div class="sw">
+        <div class="fill" style="background:var(--charcoal);"></div>
+        <div class="meta">
+          <div class="n">Charcoal — Tertiary</div>
+          <div class="h">#1C1A18</div>
+          <div class="r">Body copy and night surfaces. Warm near-black, never pure.</div>
+        </div>
+      </div>
+    </div>
+    <div class="ext-strip">
+      <div class="ext-chip"><div class="f" style="background:var(--cream);"></div><div class="t">#FAF6EF</div></div>
+      <div class="ext-chip"><div class="f" style="background:var(--cream-dark);"></div><div class="t">#F2EBE0</div></div>
+      <div class="ext-chip"><div class="f" style="background:var(--amber-light);"></div><div class="t">#E0A84E</div></div>
+      <div class="ext-chip"><div class="f" style="background:var(--amber-pale);"></div><div class="t">#F5E4C4</div></div>
+      <div class="ext-chip"><div class="f" style="background:var(--terra);"></div><div class="t">#C4614A</div></div>
+      <div class="ext-chip"><div class="f" style="background:var(--terra-pale);"></div><div class="t">#F5E0D8</div></div>
+      <div class="ext-chip"><div class="f" style="background:var(--pine-pale);"></div><div class="t">#DEEAE0</div></div>
+      <div class="ext-chip"><div class="f" style="background:var(--sky);"></div><div class="t">#2A4A6E</div></div>
+      <div class="ext-chip"><div class="f" style="background:var(--sky-pale);"></div><div class="t">#D8E6F2</div></div>
+      <div class="ext-chip"><div class="f" style="background:var(--mid);"></div><div class="t" style="color:#fff;background:var(--mid);">#6B6460</div></div>
+    </div>
+  </section>
+
+  <!-- Mid: Typography + Principles -->
+  <div class="mid">
+    <div class="card">
+      <div class="card-label">Typography</div>
+      <p class="type-display">Your <em>basecamp</em></p>
+      <div class="type-meta">Playfair Display · 500 · italic accent</div>
+      <p class="type-body">Six en-suite bedrooms, a private chef, world-class skiing and cycling — and the quiet only a Pyrenean valley delivers.</p>
+      <div class="type-meta" style="margin-top:2mm;">DM Sans · 400 · Body</div>
+      <div class="type-weights">
+        <span style="font-weight:400;">Aa</span>
+        <span style="font-weight:500;">Aa</span>
+        <span style="font-weight:700;">Aa</span>
+        <span style="font-style:italic;">Aa</span>
+        <span style="font-family:var(--font-body);font-weight:300;">Aa</span>
+        <span style="font-family:var(--font-body);font-weight:400;">Aa</span>
+        <span style="font-family:var(--font-body);font-weight:600;">Aa</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-label">Principles</div>
+      <ul class="prin-list">
+        <li><div class="num">01</div><div class="body"><strong>Private only.</strong>Exclusive use, every booking. Whole property, or not at all.</div></li>
+        <li><div class="num">02</div><div class="body"><strong>Space over saturation.</strong>Copy and layout breathe. Let the mountains speak.</div></li>
+        <li><div class="num">03</div><div class="body"><strong>Food-led.</strong>Dining is the centre of the stay. Private chef, long dinners.</div></li>
+        <li><div class="num">04</div><div class="body"><strong>Basecamp, not hotel.</strong>Guests return to warmth, not a front desk.</div></li>
+        <li><div class="num">05</div><div class="body"><strong>Year-round.</strong>Winter and summer carry equal weight. Never seasonal.</div></li>
+        <li><div class="num">06</div><div class="body"><strong>Calm premium.</strong>Understated, editorial, confident. Quality is the claim.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Voice -->
+  <section class="voice">
+    <div class="v-do">
+      <h5>Voice — say this</h5>
+      <p>Private · exclusive-use · basecamp · retreat · mountain · space · privacy · host-led · food-led · year-round</p>
+    </div>
+    <div class="v-dont">
+      <h5>Voice — never</h5>
+      <p>Cheap · cosy · budget · deal · discount · cabin · rental · Airbnb · party · epic · ultimate · exclamation marks</p>
+    </div>
+  </section>
+
+  <!-- Lockups -->
+  <section>
+    <div class="eyebrow">Wordmark · Lockups</div>
+    <div class="locks">
+      <div class="lock lock-cream">
+        <div class="big">Coal <strong>Retreats</strong></div>
+        <div class="sub">Primary · Cream</div>
+      </div>
+      <div class="lock lock-dark">
+        <div class="lock-mark">
+          <div class="m">C</div>
+          <div class="big">Coal <strong>Retreats</strong></div>
+        </div>
+        <div class="sub">Mark + wordmark · Dark</div>
+      </div>
+      <div class="lock lock-pine">
+        <div class="big">Coal <strong>Retreats</strong></div>
+        <div class="sub">On pine · Seasonal</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="foot">
+    <span>coalretreats/design/brand-book-a4.pdf</span>
+    <span>Pair with design-system.html · v1.0</span>
+  </footer>
+
+</div>
+</body>
+</html>
