@@ -1,0 +1,13 @@
+/* TEAM */
+  Owners: Jack Visick & the Coal & Co team
+  Location: Avajan, Louron Valley, French Pyrenees
+  Contact: bookings@coalretreats.com
+
+/* THANKS */
+  To the village of Avajan, the Louron Valley, and everyone who's walked
+  through the door of L'Ancienne Poste.
+
+/* SITE */
+  Standards: HTML5, CSS3, progressive enhancement
+  Fonts: Playfair Display, DM Sans
+  Last updated: 2026-04-23

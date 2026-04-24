@@ -1,0 +1,104 @@
+# Coal Retreats — Apache config for GoDaddy hosting
+# --------------------------------------------------
+
+# Force HTTPS
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Redirect www → non-www (or the other way — flip if needed)
+RewriteCond %{HTTP_HOST} ^coalretreats\.com$ [NC]
+RewriteRule ^(.*)$ https://www.coalretreats.com/$1 [R=301,L]
+
+# Pretty URLs: strip .html extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+# Trailing slash normalisation
+RewriteCond %{THE_REQUEST} \s/+(.+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# Default document
+DirectoryIndex index.html
+
+# -------- COMPRESSION (gzip) --------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css
+  AddOutputFilterByType DEFLATE application/javascript application/x-javascript
+  AddOutputFilterByType DEFLATE application/json application/xml application/rss+xml
+  AddOutputFilterByType DEFLATE image/svg+xml application/vnd.ms-fontobject
+  AddOutputFilterByType DEFLATE font/ttf font/otf font/woff font/woff2
+</IfModule>
+
+# -------- CACHE HEADERS --------
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Images, video, fonts — 1 year
+  ExpiresByType image/jpeg              "access plus 1 year"
+  ExpiresByType image/png               "access plus 1 year"
+  ExpiresByType image/webp              "access plus 1 year"
+  ExpiresByType image/svg+xml           "access plus 1 year"
+  ExpiresByType image/x-icon            "access plus 1 year"
+  ExpiresByType video/mp4               "access plus 1 year"
+  ExpiresByType video/webm              "access plus 1 year"
+  ExpiresByType font/woff               "access plus 1 year"
+  ExpiresByType font/woff2              "access plus 1 year"
+  ExpiresByType application/font-woff   "access plus 1 year"
+  ExpiresByType application/font-woff2  "access plus 1 year"
+
+  # CSS, JS — 1 month (HTML is short)
+  ExpiresByType text/css                "access plus 1 month"
+  ExpiresByType application/javascript  "access plus 1 month"
+
+  # HTML — 1 hour (balance freshness with speed)
+  ExpiresByType text/html               "access plus 1 hour"
+  ExpiresByType application/xml         "access plus 1 hour"
+  ExpiresByType application/rss+xml     "access plus 1 hour"
+</IfModule>
+
+# -------- SECURITY HEADERS --------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(self)"
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains" env=HTTPS
+
+  # CORS for fonts (in case they're called cross-origin)
+  <FilesMatch "\.(woff|woff2|ttf|otf|eot)$">
+    Header set Access-Control-Allow-Origin "*"
+  </FilesMatch>
+
+  # Cache-Control reinforcement
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|mp4|webm|woff|woff2|ico)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(html|xml|txt)$">
+    Header set Cache-Control "public, max-age=3600"
+  </FilesMatch>
+</IfModule>
+
+# -------- CHARACTER ENCODING --------
+AddDefaultCharset UTF-8
+AddCharset UTF-8 .html .css .js .xml .json .txt
+
+# -------- MIME TYPES --------
+<IfModule mod_mime.c>
+  AddType image/svg+xml                 .svg
+  AddType image/webp                    .webp
+  AddType video/mp4                     .mp4
+  AddType video/webm                    .webm
+  AddType application/manifest+json     .webmanifest
+  AddType font/woff                     .woff
+  AddType font/woff2                    .woff2
+</IfModule>
+
+# -------- ERROR PAGES --------
+ErrorDocument 404 /index.html
+
+# -------- PROTECT SENSITIVE FILES --------
+<FilesMatch "^\.(htaccess|git|env)|\.md$">
+  Require all denied
+</FilesMatch>
