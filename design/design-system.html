@@ -208,6 +208,20 @@
     margin-top: 96px; padding-top: 28px; border-top: 1px solid var(--rule);
     display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px; color: var(--mid);
   }
+
+  /* ---------- Print ---------- */
+  @page { size: A4; margin: 14mm; }
+  @media print {
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    html, body { background: var(--cream); }
+    .shell { max-width: 100%; padding: 0; }
+    section { break-inside: avoid; page-break-inside: avoid; }
+    h2.sec { break-after: avoid; page-break-after: avoid; break-before: auto; }
+    .swatch, .chip, .prin, .type-card, .lock, .dcard, .weight, .voice-card, .icon-wrap { break-inside: avoid; page-break-inside: avoid; }
+    .color-grid, .type-grid, .prin-grid, .lock-grid, .card-demo, .voice { break-inside: avoid; page-break-inside: avoid; }
+    .hdr { break-after: avoid; }
+    .ftr { margin-top: 48px; }
+  }
 </style>
 </head>
 <body>
