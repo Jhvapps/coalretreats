@@ -306,8 +306,18 @@
       font-weight: 700;
       color: var(--charcoal);
       letter-spacing: 0.02em;
+      --logo-accent: var(--amber);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      text-decoration: none;
     }
-    .nav-logo span { color: var(--amber); }
+    .nav-logo .nav-logo-text span { color: var(--logo-accent); }
+    .nav-logo .logo-peaks {
+      width: 36px; height: 16px;
+      flex-shrink: 0;
+      stroke: var(--logo-accent);
+    }
     .nav-links { display: flex; gap: 2rem; list-style: none; }
     .nav-links a {
       font-size: 0.8125rem;
@@ -515,8 +525,7 @@
       font-size: 1.0625rem; font-style: italic;
       color: var(--charcoal); line-height: 1.3;
     }
-    .nav:not(.scrolled) .nav-logo { color: #fff; }
-    .nav:not(.scrolled) .nav-logo span { color: #f3b562; }
+    .nav:not(.scrolled) .nav-logo { color: #fff; --logo-accent: #f3b562; }
     .nav:not(.scrolled) .nav-links a { color: rgba(255,255,255,0.85); }
     .nav:not(.scrolled) .nav-links a:hover { color: #fff; }
 
@@ -1400,6 +1409,12 @@
       padding-bottom: 4rem;
       border-bottom: 1px solid rgba(250,246,239,0.08);
     }
+    .footer-logo-peaks {
+      width: 56px; height: 22px;
+      stroke: var(--amber-light);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
     .footer-logo {
       font-family: var(--font-display);
       font-size: 1.5rem; font-weight: 700;
@@ -1544,7 +1559,12 @@
 <!-- NAV -->
 <nav class="nav" id="siteNav">
   <div class="nav-inner">
-    <a href="#" class="nav-logo">Coal <span>Retreats</span></a>
+    <a href="#" class="nav-logo" aria-label="Coal Retreats">
+      <svg class="logo-peaks" viewBox="0 0 60 22" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M 4 16 L 14 4 L 22 12 L 30 2 L 40 14 L 48 8 L 56 16"/>
+      </svg>
+      <span class="nav-logo-text">Coal <span>Retreats</span></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#story">Our Story</a></li>
       <li><a href="#chalet">The Chalet</a></li>
@@ -2327,6 +2347,9 @@
   <div class="shell">
     <div class="footer-grid">
       <div class="footer-brand">
+        <svg class="footer-logo-peaks" viewBox="0 0 60 22" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M 4 16 L 14 4 L 22 12 L 30 2 L 40 14 L 48 8 L 56 16"/>
+        </svg>
         <div class="footer-logo">Coal <span>Retreats</span></div>
         <p>A private mountain house in the Louron Valley, French Pyr&eacute;n&eacute;es. Part of the Coal &amp; Co. hospitality group.</p>
       </div>
